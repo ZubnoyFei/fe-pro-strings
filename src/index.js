@@ -7,11 +7,8 @@
 
 
 export const replaceZAndVFromString = (string) => {
-    for(let i=0, i<string.length; i++){
-        string.replaceAll("z,v","*");
-        return result;
-    }
-}
+return string.replace(/z|v/gi, '*')
+};
 
 /**
  * Функция должна принять 3 аргумента и все строки. Мы передаем строку,
@@ -24,14 +21,15 @@ export const replaceZAndVFromString = (string) => {
  * @returns {string}
  */
 export const changeWord = (string, word, newWord) => {
-    for(let i=0, i<string.length; i++){
-        if(string === "my name bohdan and I") {
-            string.replaceAll("My Bohdan and I", "Vlad");
-            return newWord;
-        } else {
-            return string;
+const pos = string.indexOf(word);// Мы ищем позицию нашего слова
+
+    if (pos === -1){// Если мы не нашли позицию нашего слова
+return string;// мы возвращаем это слово
+    } else{
+      return`${string.slice(0, pos)}${newWord}${string.slice(
+          pos + word.length//Мы возвращаем строку и вырезаем это слово. Мы получаем позицию, вставляем новое слово и вставляем остаток старого слова
+      )}`;
     }
-}
 };
 
 /**
@@ -41,10 +39,7 @@ export const changeWord = (string, word, newWord) => {
  * @returns {string}
  */
 export const truncate = (string, length) => {
-    if(string.length>=4){
-        return string.slice(0,3);
-    }
-
+return string.slice(0,length);
 };
 
 /**
@@ -59,11 +54,14 @@ export const truncate = (string, length) => {
  * @returns {number}
  */
 export const quantityOfSymbols = (string, symbol) => {
-    for(let i=count=0, i<string.length; count+=+(stringsearch===string[i++])) {
-return string.toLowerCase();
-    let symbol = string.length;
-    return symbol;
+let counter = 0;
+for(let i=0; i<string.length; i++){
+    let stringItem = string.charAt(i); //returns specified symbol
+    if(stringItem.toLowerCase().includes(symbol.toLowerCase())) {
+        counter++;
     }
+    }
+return counter;
 };
 
 /**
@@ -82,10 +80,16 @@ return string.toLowerCase();
  * @returns {number}
  */
 export const quantityOfSymbolsWithIndexOf = (string, symbol) => {
-    quantityOfSymbolsWithIndexOf.toLowerCase();
-    for (let i = 0, i<string.length; i++){
-        while(string.length > 0){
-            return symbol;
-        }
-    }
+  symbol === symbol.toLowerCase();
+  let amount = string.toLowerCase().indexOf(symbol);
+  let count = 0;
+  while(true) {
+      if(amount !== -1){
+          amount= string.toLowerCase().indexOf(symbol, amount+1);
+          count++;
+      } else {
+          break;
+      }
+  }
+  return count;
 };
