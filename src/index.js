@@ -7,8 +7,7 @@
 
 
 export const replaceZAndVFromString = (string) => {
-const newString = string.replace(/v|z|V|Z/gi, '*');
-    return newString;
+return string.replace(/z|v/gi, '*')
 };
 
 /**
