@@ -7,19 +7,8 @@
 
 
 export const replaceZAndVFromString = (string) => {
-
-    let result = ''; //Объявляем пустую строку
-    for(let i=0; i<string.length; i++){
-if(string[i].toLowerCase === 'z'||string[i].toLowerCase[i]==='v'){
-    result += '*';
-    continue;
-}
-
-
-result += string[i]; //Если z и v не находится, то просто возвращаем текущую строку.
-    }
-
-    return result;
+const newString = string.replace(/v|z|V|Z/gi, '*');
+    return newString;
 };
 
 /**
