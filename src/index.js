@@ -13,10 +13,13 @@ export const replaceZAndVFromString = (string) => {
 if(string[i].toLowerCase === 'z'||string[i].toLowerCase[i]==='v'){
     result += '*';
     continue;
-} result += string[i]; //Если z и v не находится, то просто возвращаем текущую строку.
+}
 
+
+result += string[i]; //Если z и v не находится, то просто возвращаем текущую строку.
     }
-return result;
+
+    return result;
 };
 
 /**
@@ -36,7 +39,8 @@ const pos = string.indexOf(word);// Мы ищем позицию нашего с
 return string;// мы возвращаем это слово
     } else{
       return`${string.slice(0, pos)}${newWord}${string.slice(
-          pos + word.length)}` //Мы возвращаем строку и вырезаем это слово. Мы получаем позицию, вставляем новое слово и вставляем остаток старого слова
+          pos + word.length//Мы возвращаем строку и вырезаем это слово. Мы получаем позицию, вставляем новое слово и вставляем остаток старого слова
+      )}`;
     }
 };
 
@@ -47,7 +51,7 @@ return string;// мы возвращаем это слово
  * @returns {string}
  */
 export const truncate = (string, length) => {
-return string.slice(0, string.length);
+return string.slice(0,length);
 };
 
 /**
@@ -62,14 +66,14 @@ return string.slice(0, string.length);
  * @returns {number}
  */
 export const quantityOfSymbols = (string, symbol) => {
-let count = 0;
-symbol = symbol.toLowerCase();
-for(let i= 0; i< string.length; i++){
-    if(string[i].toLowerCase() === symbol){
-        count++;
+let counter = 0;
+for(let i=0; i<string.length; i++){
+    let stringItem = string.charAt(i); //returns specified symbol
+    if(stringItem.toLowerCase().includes(symbol.toLowerCase())) {
+        counter++;
     }
     }
-return count;
+return counter;
 };
 
 /**
@@ -89,7 +93,6 @@ return count;
  */
 export const quantityOfSymbolsWithIndexOf = (string, symbol) => {
   symbol === symbol.toLowerCase();
-
   let amount = string.toLowerCase().indexOf(symbol);
   let count = 0;
   while(true) {
